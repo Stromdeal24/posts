@@ -1,4 +1,5 @@
-"""Strom Deal 24 – Woche 2 (Mo 26.10. – Fr 30.10.2026). Design: stromdeal24_render.py"""
+"""Strom Deal 24 – Woche 2 (Mo 26.10. – Fr 30.10.2026). Design: stromdeal24_render.py
+Themen gegen content-log.md geprüft (keine Wiederholung von Woche 1 und den Posts vom 6.–15.10.)."""
 import asyncio, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import stromdeal24_render as R
@@ -10,11 +11,11 @@ def mythos(i, q, a, text):
     return s
 
 R.REELS = {
-    "W2_Mo_Reel_Grundversorgung": ("mast", [
-        (2.8, [kicker("KURZE FRAGE"), big("Noch in der<br>" + gold("Grundversorgung?"))]),
-        (3.0, [mid("Dann zahlen Sie<br>wahrscheinlich"), big(gold("zu viel."))]),
-        (3.2, [mid("Sonderverträge sind<br>in der Regel"), big(gold("günstiger."))]),
-        (3.2, [kicker("GUTE NACHRICHT"), big("Raus kommen Sie<br>" + gold("in 2 Wochen."))]),
+    "W2_Mo_Reel_Bonus": ("mast", [
+        (2.8, [kicker("VORSICHT"), big("Hoher<br>" + gold("Neukundenbonus?"))]),
+        (3.0, [mid("Im ersten Jahr<br>sieht alles"), big(gold("günstig aus."))]),
+        (3.2, [mid("Ab dem zweiten Jahr<br>zahlen Sie oft"), big(gold("drauf."))]),
+        (3.2, [kicker("UNSER TIPP"), big("Auf die Kosten<br>" + gold("nach dem Bonus") + " achten.")]),
         (3.6, CTA_REEL)]),
     "W2_Di_Reel_Preiserhoehung": ("chip", [
         (2.8, [kicker("POST VOM VERSORGER?"), big("Preiserhöhung<br>" + gold("angekündigt?"))]),
@@ -22,11 +23,11 @@ R.REELS = {
         (3.2, [mid("Aber Achtung:"), big("Kündigen bis zum<br>" + gold("Stichtag."))]),
         (3.2, [kicker("UNSER TIPP"), big("Brief nicht liegen<br>lassen – " + gold("prüfen."))]),
         (3.6, CTA_REEL)]),
-    "W2_Mi_Reel_Verlaengert": ("chip", [
-        (2.8, [kicker("SCHON PASSIERT?"), big("Vertrag einfach<br>" + gold("weitergelaufen?"))]),
-        (3.0, [mid("Frist verpasst?<br>Dann oft"), big(gold("automatisch verlängert."))]),
-        (3.2, [mid("Und oft zu Preisen,<br>die längst"), big(gold("nicht mehr passen."))]),
-        (3.2, [checklist("Vertragsende notiert", "Frist im Kalender", "Rechtzeitig verglichen")]),
+    "W2_Mi_Reel_Oekostrom": ("chip", [
+        (2.8, [kicker("NACHHALTIG?"), big("Ökostrom für<br>" + gold("Ihren Betrieb?"))]),
+        (3.0, [mid("Viele denken:"), big("„Das ist doch<br>" + gold("viel teurer.“"))]),
+        (3.2, [mid("Oft ist der Unterschied"), big(gold("kleiner als gedacht."))]),
+        (3.2, [kicker("UND IHRE KUNDEN"), big("achten immer<br>" + gold("mehr darauf."))]),
         (3.6, CTA_REEL)]),
     "W2_Do_Reel_Nachts": ("mast", [
         (2.8, [kicker("FEIERABEND?"), big("Ihr Zähler<br>" + gold("nicht."))]),
@@ -43,25 +44,24 @@ R.REELS = {
 }
 
 R.CAROUSELS = {
-    "W2_Mo_Karussell_Wechsel": ("chip", [
-        s_title("ANBIETERWECHSEL", "4 Schritte,", "so einfach ist " + gold("der Wechsel.")),
-        s_num(1, "Foto schicken", "Ihre letzte Strom- oder<br>Gasrechnung per DM."),
-        s_num(2, "Wir vergleichen", "Passende Tarife für Ihren<br>Verbrauch und Betrieb."),
-        s_num(3, "Sie entscheiden", "Erst wenn das Angebot passt,<br>geht es weiter."),
-        s_num(4, "Wir erledigen den Rest", "Kündigung und Anmeldung –<br>ohne Unterbrechung."),
-        s_cta("Bereit für den Wechsel?<br>" + gold("Wir prüfen das."))]),
-    "W2_Di_Karussell_Rechnung": ("mast", [
-        s_title("RECHNUNG VERSTEHEN", "4 Angaben,", "auf die es " + gold("wirklich ankommt.")),
-        s_num(1, "Verbrauch in kWh", "So viel Energie hat Ihr<br>Betrieb im Jahr gebraucht."),
-        s_num(2, "Arbeitspreis", "Was Sie pro Kilowattstunde<br>bezahlen."),
-        s_num(3, "Grundpreis", "Der feste Betrag –<br>egal wie viel Sie verbrauchen."),
-        s_num(4, "Vertragsende & Frist", "Wann Sie spätestens<br>kündigen müssen."),
-        s_cta("Rechnung zur Hand?<br>" + gold("Wir lesen mit."))]),
+    "W2_Mo_Karussell_Preisgarantie": ("chip", [
+        s_title("GUT ZU WISSEN", "Preisgarantie", "ist nicht gleich " + gold("Preisgarantie.")),
+        s_num(1, "Volle Preisgarantie", "Der Preis bleibt fest –<br>bis auf ganz wenige Ausnahmen."),
+        s_num(2, "Eingeschränkte Garantie", "Steuern und Abgaben<br>können trotzdem steigen."),
+        s_num(3, "Keine Garantie", "Der Preis kann sich<br>jederzeit ändern."),
+        s_cta("Was steht in Ihrem Vertrag?<br>" + gold("Wir prüfen das."))]),
+    "W2_Di_Karussell_Vergleich": ("mast", [
+        s_title("ANGEBOTE VERGLEICHEN", "4 Punkte,", "die " + gold("wirklich zählen.")),
+        s_num(1, "Kosten ohne Bonus", "Was zahlen Sie,<br>wenn der Bonus weg ist?"),
+        s_num(2, "Laufzeit", "Wie lange sind Sie<br>gebunden?"),
+        s_num(3, "Kündigungsfrist", "Wie früh müssen Sie<br>Bescheid geben?"),
+        s_num(4, "Abschlag", "Passt der monatliche Betrag<br>zu Ihrem Verbrauch?"),
+        s_cta("Zu viele Angebote?<br>" + gold("Wir vergleichen für Sie."))]),
     "W2_Mi_Karussell_Mythen": ("chip", [
         s_title("ANBIETERWECHSEL", "3 Mythen,", "die Sie " + gold("Geld kosten.")),
-        mythos(1, "Beim Grundversorger bin ich sicherer.", "Falsch.", "Auch bei Problemen des<br>Anbieters fließt der Strom weiter."),
+        mythos(1, "Der billigste Tarif ist immer der beste.", "Nicht immer.", "Laufzeit, Preisgarantie und<br>Bedingungen zählen mit."),
         mythos(2, "Ich brauche einen neuen Zähler.", "Nein.", "Ihr Zähler bleibt,<br>wie er ist."),
-        mythos(3, "Lohnt sich nur bei viel Verbrauch.", "Falsch.", "Auch kleine Betriebe<br>zahlen oft zu viel."),
+        mythos(3, "Ein Wechsel dauert ewig.", "Falsch.", "Der Wechsel selbst<br>geht heute schnell."),
         s_cta("Klingt gut?<br>" + gold("Wir prüfen das."))]),
     "W2_Do_Karussell_Stromfresser": ("mast", [
         s_title("ENERGIE SPAREN", "4 Bereiche,", "in denen " + gold("Strom versickert.")),
@@ -70,12 +70,13 @@ R.CAROUSELS = {
         s_num(3, "Standby", "Geräte, die nachts<br>nie ganz ausgehen."),
         s_num(4, "Alte Maschinen", "Neue Geräte sind sparsamer –<br>oft sogar mit Förderung."),
         s_cta("Tarif und Förderung?<br>" + gold("Wir prüfen beides."))]),
-    "W2_Fr_Karussell_Umzug": ("chip", [
-        s_title("NEUER STANDORT?", "Umzug,", "aber " + gold("an Energie gedacht?")),
-        s_num(1, "Zählerstand notieren", "Am alten und am neuen<br>Standort – mit Foto."),
-        s_num(2, "Vertrag rechtzeitig klären", "Sonst landen Sie oft in der<br>teuren Grundversorgung."),
-        s_num(3, "Verbrauch neu einschätzen", "Neue Fläche, neue Geräte –<br>neuer Bedarf."),
-        s_cta("Umzug geplant?<br>" + gold("Wir kümmern uns."))]),
+    "W2_Fr_Karussell_Team": ("chip", [
+        s_title("FÜRS TEAM", "4 Spartipps,", "die " + gold("jeder umsetzen kann.")),
+        s_num(1, "Licht aus", "In Lager, Toilette und Büro,<br>wenn keiner drin ist."),
+        s_num(2, "Ganz ausschalten", "Steckerleiste statt Standby –<br>vor allem am Wochenende."),
+        s_num(3, "Richtig lüften", "Kurz und kräftig statt<br>Fenster stundenlang gekippt."),
+        s_num(4, "Kühlung zu", "Türen von Kühlschrank und<br>Kühltheke nicht offen lassen."),
+        s_cta("Sparen ist das eine.<br>" + gold("Der Tarif das andere."))]),
 }
 
 if __name__ == "__main__":
