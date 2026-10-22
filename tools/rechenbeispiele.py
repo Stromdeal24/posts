@@ -31,12 +31,12 @@ def tarif(bg, branche, kwh, alt, neu):
         (3.8, CTA_REEL + [NOTE])])
 
 REELS = {
-    "RB_Cafe":       tarif("chip", "Café", 20000, 34, 28),
-    "RB_Baeckerei":  tarif("mast", "Bäckerei", 80000, 33, 27),
-    "RB_Restaurant": tarif("chip", "Restaurant", 50000, 34, 28),
-    "RB_Apotheke":   tarif("mast", "Apotheke", 30000, 33, 27),
-    "RB_Friseur":    tarif("chip", "Friseursalon", 15000, 34, 28),
-    "RB_Produktion": tarif("mast", "Produktion", 150000, 30, 25),
+    "RB_Cafe":       tarif("chip", "Café", 20000, 36, 29),
+    "RB_Baeckerei":  tarif("mast", "Bäckerei", 80000, 35, 28),
+    "RB_Restaurant": tarif("chip", "Restaurant", 50000, 36, 29),
+    "RB_Apotheke":   tarif("mast", "Apotheke", 30000, 35, 29),
+    "RB_Friseur":    tarif("chip", "Friseursalon", 15000, 36, 29),
+    "RB_Produktion": tarif("mast", "Produktion", 150000, 33, 27),
 
     "FB_Baeckerei_Stromsteuer": ("chip", [
         (2.8, [kicker("FÖRDER-RECHENBEISPIEL"), big("Bäckerei mit<br>" + gold("80.000 kWh"))]),
